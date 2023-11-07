@@ -770,7 +770,7 @@ class Resources:
             if self._use_spot:
                 with ux_utils.print_exception_no_traceback():
                     raise ValueError(
-                        "Local/On-prem mode does not support spot " "instances."
+                        "Local/On-prem mode does not support spot instances."
                     )
             local_instance = clouds.Local.get_default_instance_type()
             if (
@@ -785,7 +785,7 @@ class Resources:
             if self._image_id is not None:
                 with ux_utils.print_exception_no_traceback():
                     raise ValueError(
-                        "Local/On-prem mode does not support custom " "images."
+                        "Local/On-prem mode does not support custom images."
                     )
 
     def extract_docker_image(self) -> Optional[str]:
@@ -902,7 +902,7 @@ class Resources:
         if skypilot_config.get_nested(("aws", "security_group_name"), None) is not None:
             with ux_utils.print_exception_no_traceback():
                 raise ValueError(
-                    "Cannot specify ports when AWS security group name is " "specified."
+                    "Cannot specify ports when AWS security group name is specified."
                 )
         if self.cloud is not None:
             self.cloud.check_features_are_supported(
@@ -1010,8 +1010,9 @@ class Resources:
                     return False
             else:
                 this_image = self.image_id.get(other.region) or self.image_id.get(None)
-                other_image = other.image_id.get(other.region) or other.image_id.get(
-                    None
+                other_image = (
+                    other.image_id.get(other.region)
+                    or other.image_id.get(None)
                 )
                 if this_image != other_image:
                     return False
