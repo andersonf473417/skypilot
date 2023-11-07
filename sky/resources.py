@@ -842,6 +842,8 @@ class Resources:
                         f'Image {image_id!r} is {image_size}GB, which is '
                         f'{size_compare} the specified disk_size: '
                         f'{self.disk_size} GB. Please specify a larger '
+                        'disk_size.'
+                    )
                         'disk_size to use this image.')
 
     def _try_validate_disk_tier(self) -> None:
